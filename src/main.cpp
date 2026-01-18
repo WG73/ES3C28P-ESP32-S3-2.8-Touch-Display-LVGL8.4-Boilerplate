@@ -81,6 +81,7 @@ void show_mem() {
 	lv_textarea_add_text(txtfield, buff);
 	sprintf(buff, "Flash mode: %u\n\n\n", ESP.getFlashChipMode());
 	lv_textarea_add_text(txtfield, buff);
+	lv_obj_scroll_to(txtfield, 0, 0, LV_ANIM_ON);
 }
 
 void lv_example_btnmatrix_1(void)
@@ -96,6 +97,7 @@ void lv_example_btnmatrix_1(void)
 
 	txtfield = lv_textarea_create(lv_scr_act());
 	lv_obj_set_style_width(txtfield, lv_pct(95), LV_PART_MAIN );
+	lv_obj_set_style_text_align(txtfield, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN);
 	lv_obj_align(txtfield, LV_ALIGN_TOP_MID, 0, 10);
 
 
