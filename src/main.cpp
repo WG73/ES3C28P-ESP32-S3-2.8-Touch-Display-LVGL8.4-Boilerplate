@@ -106,7 +106,8 @@ void lv_example_btnmatrix_1(void)
 
 void setup(){
     Serial.begin(115200); /* prepare for possible serial debug */
-    while (!Serial);
+	unsigned long start = millis();
+	while (!Serial && millis() - start < 1500); // maximal 1.5 Sekunden warten
     String LVGL_Arduino = "Hello ESP32-S3! ";
     LVGL_Arduino += String("LVGL V") + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     my_lcd.init();
@@ -141,6 +142,8 @@ void setup(){
 	lv_obj_center(label);
 	lv_label_set_text(label, LVGL_Arduino.c_str());
 	show_mem();
+
+	Serial.println("ESP32-S3 startet");
 
 }
 
